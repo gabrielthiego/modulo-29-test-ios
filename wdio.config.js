@@ -1,19 +1,28 @@
 exports.config = {
   runner: 'local',
+  protocol: 'https',
+  hostname: 'ondemand.saucelabs.com',
+  port: 443,
   path: '/wd/hub',
-  specs: ['./test/login.test.js'],
+
+  user: process.env.SAUCE_USERNAME,
+  key: process.env.SAUCE_ACCESS_KEY,
+
+  specs: ['./test/compras.test.js'],
   maxInstances: 1,
+
   capabilities: [{
     platformName: 'iOS',
     'appium:platformVersion': '16.0',
-    'appium:deviceName': 'iPhone Simulator',
+    'appium:deviceName': 'iPhone 14 Simulator',
     'appium:automationName': 'XCUITest',
-   'appium:app': '/Users/gabri/Library/Developer/Xcode/DerivedData/LojaEBAC-sim.app'
-
+    'appium:app': 'sauce-storage:LojaEBAC.ipa'
   }],
+
   logLevel: 'info',
   framework: 'mocha',
   reporters: ['spec'],
+
   mochaOpts: {
     timeout: 60000
   }
