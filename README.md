@@ -1,50 +1,64 @@
-# modulo-29-test-ios
-modulo 29 curso ebac test ios com WDIO e Appium
-Descrição
-Este projeto contém testes automatizados para o aplicativo Loja EBAC, focado em iOS utilizando WebdriverIO e Appium.
+# Testes iOS com Appium - Módulo 29
 
-Requisitos
-Node.js instalado
+Este projeto é a entrega do Módulo 29 do curso da EBAC (Engenheiro de Qualidade de Software), com testes automatizados em iOS usando WebdriverIO, Appium, Mocha e Sauce Labs.
 
-NPM instalado
+##  Tecnologias utilizadas
 
-Appium instalado globalmente (npm install -g appium)
+- WebdriverIO  
+- Appium  
+- Mocha  
+- Sauce Labs
 
-Simulador iOS configurado no Xcode
+##  Estrutura do Projeto
 
-Aplicativo Loja EBAC compilado para simulador (arquivo .app)
+```
+.
+├── .gitignore
+├── package.json
+├── wdio.conf.js
+└── test
+    └── compras.test.js
+```
 
-Configuração
-Clone o repositório:
-git clone https://github.com/gabrielthiego/modulo-29-test-ios.git
-cd modulo-29-test-ios
+##  Pré-requisitos
 
-Instale as dependências:
-npm install --legacy-peer-deps (pra mim só funciona assim...)
+- Node.js instalado  
+- Conta no Sauce Labs (https://saucelabs.com/)  
+- API key e username configurados nas variáveis de ambiente:  
+  - `SAUCE_USERNAME`  
+  - `SAUCE_ACCESS_KEY`
 
-Configure o caminho do app no arquivo wdio.conf.js:
-'appium:app': '/Users/gabri/Library/Developer/Xcode/DerivedData/LojaEBAC-sim.app'
-(Altere para o caminho correto do seu .app)
+##  Como rodar os testes
 
-Rodando os testes
-Execute:
+1. Instale as dependências:
+
+```bash
+npm install --legacy-peer-deps
+```
+
+2. Inicie o Appium localmente ou configure o acesso ao Sauce Labs.  
+
+3. Execute os testes:
+
+```bash
 npx wdio run wdio.conf.js
+```
 
-O WDIO vai abrir o simulador iOS, instalar o app e rodar os testes.
+##  Observações
 
-Observações
-Se usar Sauce Labs, será necessário configurar as variáveis de ambiente e ajustar o wdio.conf.js.
+- Este projeto usa o aplicativo `lojaebac.ipa` para execução no Sauce Labs.  
+- O caminho do app está configurado no arquivo `wdio.conf.js`, dentro da propriedade `appium:app`.  
+- Para execução em simulador local, troque para `LojaEBAC-sim.app`.
 
-Testes estão escritos em Mocha.
+##  Links úteis e referências
 
-Timeout padrão de 60 segundos.
+- [Documentação WebdriverIO](https://webdriver.io/docs/gettingstarted/)  
+- [Appium - Guia Oficial](https://appium.io/docs/en/about-appium/intro/)  
+- [Guia GitHub Readme](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)  
+- [Gerador de Readmes](https://www.makeareadme.com/)  
+- [Templates de Readme](https://github.com/dbader/readme-template)
 
-Estrutura do projeto
-wdio.conf.js - Configuração do WebdriverIO
+---
 
-test/ - Pasta contendo os arquivos de teste (*.test.js)
-
-Contato
-Gabriel Thiego Trindade Sperduto
-Projeto feito para estudos EBAC
-
+Gabriel Thiego Trindade Sperduto  
+Entrega: 22/05/2025
