@@ -1,6 +1,12 @@
 name: Run iOS tests on BrowserStack
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - ci
+  pull_request:
+    branches:
+      - ci
 
 jobs:
   test:
