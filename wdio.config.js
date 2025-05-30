@@ -3,6 +3,7 @@ exports.config = {
   key: process.env.BROWSERSTACK_ACCESS_KEY,
 
   services: ['browserstack'],
+
   specs: ['./test/compras.test.js'],
   maxInstances: 1,
 
@@ -12,12 +13,17 @@ exports.config = {
     'appium:deviceName': 'iPhone 14',
     'appium:automationName': 'XCUITest',
     'appium:app': 'bs://263b978ede150f25f99039e7f9bfe18f6bd7b941',
+    'appium:build': 'modulo-29-ios-tests',
+    'appium:name': 'compras.test.js',
+    'browserstack.video': true
   }],
 
   logLevel: 'info',
+
   framework: 'mocha',
   reporters: ['spec'],
+
   mochaOpts: {
     timeout: 60000
   }
-}
+};
