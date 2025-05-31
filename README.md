@@ -1,64 +1,65 @@
-# Testes iOS com Appium - Módulo 29
+# Testes iOS com Appium - Módulo 29 e 30
 
-Este projeto é a entrega do Módulo 29 do curso da EBAC (Engenheiro de Qualidade de Software), com testes automatizados em iOS usando WebdriverIO, Appium, Mocha e Sauce Labs.
+Este projeto contém as entregas dos **Módulos 29 e 30** do curso da EBAC (Engenheiro de Qualidade de Software), com testes automatizados em iOS usando WebdriverIO, Appium, Mocha, BrowserStack e GitHub Actions.
 
-##  Tecnologias utilizadas
+## Tecnologias utilizadas
 
-- WebdriverIO  
-- Appium  
-- Mocha  
-- Sauce Labs
+* WebdriverIO
+* Appium
+* Mocha
+* BrowserStack
+* GitHub Actions
 
-##  Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 .
-├── .gitignore
+├── .github
+│   └── workflows
+│       └── ci.yml
+├── node_modules
 ├── package.json
-├── wdio.conf.js
+├── wdio.config.js
 └── test
     └── compras.test.js
 ```
 
-##  Pré-requisitos
+## Pré-requisitos
 
-- Node.js instalado  
-- Conta no Sauce Labs (https://saucelabs.com/)  
-- API key e username configurados nas variáveis de ambiente:  
-  - `SAUCE_USERNAME`  
-  - `SAUCE_ACCESS_KEY`
+* Node.js instalado
+* Conta no BrowserStack ([https://browserstack.com/](https://browserstack.com/))
+* API Key e Username configurados como **Secrets** no GitHub:
 
-##  Como rodar os testes
+  * `BROWSERSTACK_USERNAME`
+  * `BROWSERSTACK_ACCESS_KEY`
+
+## Como rodar os testes
 
 1. Instale as dependências:
 
 ```bash
-npm install --legacy-peer-deps
+npm install
 ```
 
-2. Inicie o Appium localmente ou configure o acesso ao Sauce Labs.  
-
-3. Execute os testes:
+2. Execute os testes localmente (opcional, com as variáveis de ambiente configuradas):
 
 ```bash
-npx wdio run wdio.conf.js
+npx wdio run wdio.config.js
 ```
 
-##  Observações
+3. Ou suba um commit na branch `ci` para disparar os testes via GitHub Actions.
 
-- Este projeto usa o aplicativo `lojaebac.ipa` para execução no Sauce Labs.  
-- O caminho do app está configurado no arquivo `wdio.conf.js`, dentro da propriedade `appium:app`.  
-- Para execução em simulador local, troque para `LojaEBAC-sim.app`.
+## Observações
 
-##  Links úteis e referências
+* O app testado é o `lojaebac.ipa`, hospedado no BrowserStack.
+* O caminho do app está configurado em `wdio.config.js`, na propriedade `appium:app`.
+* O vídeo gerado na execução via BrowserStack pode ser acessado diretamente pelo painel deles, mas pode apresentar problemas visuais na tela do app (bug conhecido da plataforma).
 
-- [Documentação WebdriverIO](https://webdriver.io/docs/gettingstarted/)  
-- [Appium - Guia Oficial](https://appium.io/docs/en/about-appium/intro/)  
-- [Guia GitHub Readme](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)  
-- [Gerador de Readmes](https://www.makeareadme.com/)  
-- [Templates de Readme](https://github.com/dbader/readme-template)
+## Link do repositório com execução CI
+
+* [GitHub Actions - Execução dos testes](https://github.com/gabrielthiego/modulo-29-test-ios/actions)
 
 ---
 
-Gabriel Thiego Trindade Sperduto  
-Entrega: 22/05/2025
+Gabriel Thiego Trindade Sperduto
+Entrega: **Módulos 29 e 30 - Testes automatizados e integração com CI/CD**
